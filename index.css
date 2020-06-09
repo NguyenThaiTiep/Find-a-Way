@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+}
+
+.game {
+    background-color: burlywood;
+    display: inline-block;
+    text-align: center;
+}
+
+.game .board {
+    background-color: aliceblue;
+    position: relative;
+    display: inline-block;
+    border: black solid 1px;
+    font-weight: bold;
+    top: 75px;
+}
+
+.game .board .item {
+    position: absolute;
+    border: black solid 1px;
+    cursor: pointer;
+}
+
+.game .board .item span {
+    font-size: 1.6rem;
+    display: block;
+    margin-top: 5px;
+}
+
+.active {
+    background-color: #7FFF00;
+}
+
+.game .board .active:hover {
+    background-color: #7FFF00;
+}
