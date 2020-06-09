@@ -4,22 +4,24 @@
 }
 
 body {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .game {
     background-color: burlywood;
-    display: inline-block;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .game .board {
     background-color: aliceblue;
     position: relative;
-    display: inline-block;
+    display: block;
     border: black solid 1px;
     font-weight: bold;
-    top: 75px;
     text-align: center;
 }
 
@@ -41,4 +43,15 @@ body {
 
 .game .board .active:hover {
     background-color: #7FFF00;
+}
+
+@media only screen and (max-width: 1000px) {
+    .game {
+        background-color: rgb(215, 226, 204);
+        width: 100vw;
+        height: 100vh;
+    }
+    .board {
+        transform: scale(0.7);
+    }
 }
