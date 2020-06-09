@@ -8,7 +8,9 @@ class game {
         this.board = null;
         this.data_board = 2;
         this.init();
-
+        this.audio_win = new Audio('./ting.mp3');
+        this.audio_wrong = new Audio('./wrong.mp3');
+        this.setSound();
     }
     init() {
         this.tag = document.createElement('div');
@@ -47,8 +49,10 @@ class game {
         var number = dot.text;
         if (this.preNumber + 1 == number) {
             this.addNumberToWayList(dot);
+            this.audio_win.play();
             return true;
         } else {
+            this.audio_wrong.play();
             return false;
         }
     }
@@ -70,7 +74,14 @@ class game {
 
         }
     }
-
+    setSound() {
+        this.audio_win.oncanplaythrough = function() {
+            this.audio_win.play();
+        }
+        this.audio_wrong.oncanplaythrough = function() {
+            this.audio_wrong.play();
+        }
+    }
 
 }
 var GAME = new game();
