@@ -20,6 +20,7 @@ body {
     border: black solid 1px;
     font-weight: bold;
     top: 75px;
+    text-align: center;
 }
 
 .game .board .item {
@@ -40,4 +41,10 @@ body {
 
 .game .board .active:hover {
     background-color: #7FFF00;
+}
+
+@media only screen and (max-width: 420px) {
+    .game {
+        text-align: justify;
+    }
 }
