@@ -1,2 +1,2 @@
-const link_host = "https://nguyenthaitiep.github.io/Find-a-Way/index.html";
+const link_host = "/";
 export { link_host };
