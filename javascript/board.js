@@ -69,8 +69,8 @@ class board {
         this.start.setCanClick(true);
         this.start.status = 1;
         console.log(this.start.canClick, this.start.status, this.start.row, this.start.col);
-
     }
+
 
 
 

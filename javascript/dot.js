@@ -10,8 +10,10 @@ class dot {
         this.tag = null;
         this.size = DOT_SIZE;
         this.init();
+        this.audio_win = new Audio('./ting.mp3');
+        this.audio_wrong = new Audio('./wrong.mp3');
+        this.setSound();
         this.dotListenMouserEvent();
-
     }
 
     init() {
@@ -37,7 +39,10 @@ class dot {
                         if (this.game.checkNumber(this)) {
                             this.tag.classList.add("active");
                             this.game.next(this);
-                            this.setStatus()
+                            this.setStatus();
+                            this.audio_win.play();
+                        } else {
+                            this.audio_wrong.play();
                         }
                         break;
                     case -1:
@@ -59,6 +64,14 @@ class dot {
     }
     setCanClick(canClick) {
         this.canClick = canClick;
+    }
+    setSound() {
+        this.audio_win.oncanplaythrough = function() {
+            this.audio_win.play();
+        }
+        this.audio_wrong.oncanplaythrough = function() {
+            this.audio_wrong.play();
+        }
     }
 
 }

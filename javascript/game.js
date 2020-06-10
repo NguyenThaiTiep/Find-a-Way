@@ -8,9 +8,7 @@ class game {
         this.board = null;
         this.data_board = 2;
         this.init();
-        this.audio_win = new Audio('./ting.mp3');
-        this.audio_wrong = new Audio('./wrong.mp3');
-        this.setSound();
+
     }
     init() {
         this.tag = document.createElement('div');
@@ -18,9 +16,11 @@ class game {
         this.tag.id = 'game';
         this.tag.style.width = this.width + "px";
         this.tag.style.height = this.height + "px";
-        this.initDataBoard();
-        this.board = new board(this, this.data_board);
 
+        this.initDataBoard();
+        this.initRabbit();
+        this.board = new board(this, this.data_board);
+        this.initCarrot();
         document.body.appendChild(this.tag);
 
     }
@@ -34,7 +34,8 @@ class game {
 
     }
     initDataBoard() {
-        this.data_board = data.game;
+        var index = Math.floor(Math.random() * data.game.length)
+        this.data_board = data.game[index];
     }
     addNumberToWayList(dot) {
         this.way_list.push(dot);
@@ -49,10 +50,10 @@ class game {
         var number = dot.text;
         if (this.preNumber + 1 == number) {
             this.addNumberToWayList(dot);
-            this.audio_win.play();
+
             return true;
         } else {
-            this.audio_wrong.play();
+
             return false;
         }
     }
@@ -74,13 +75,20 @@ class game {
 
         }
     }
-    setSound() {
-        this.audio_win.oncanplaythrough = function() {
-            this.audio_win.play();
-        }
-        this.audio_wrong.oncanplaythrough = function() {
-            this.audio_wrong.play();
-        }
+
+    initRabbit() {
+        var rabbit = document.createElement('div');
+        rabbit.className = "rabbit";
+        var row = this.data_board.start.row - 5;
+        rabbit.style.marginTop = row * DOT_SIZE * 2 + "px";
+        this.tag.appendChild(rabbit);
+    }
+    initCarrot() {
+        var carrot = document.createElement('div');
+        carrot.className = "carrot";
+        var row = this.data_board.end.row - 5;
+        carrot.style.marginTop = row * DOT_SIZE + "px";
+        this.tag.appendChild(carrot);
     }
 
 }

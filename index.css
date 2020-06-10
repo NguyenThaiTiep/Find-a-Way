@@ -45,13 +45,33 @@ body {
     background-color: #7FFF00;
 }
 
-@media only screen and (max-width: 1000px) {
+.game .rabbit {
+    background-image: url('./rabbit.png');
+    background-size: cover;
+    width: 90px;
+    height: 110px;
+}
+
+.game .carrot {
+    background-image: url('./car.png');
+    background-size: cover;
+    width: 100px;
+    height: 56px;
+}
+
+@media only screen and (max-width: 768px) {
     .game {
         background-color: rgb(215, 226, 204);
         width: 100vw;
         height: 100vh;
     }
-    .board {
+    .game {
         transform: scale(0.7);
     }
+}
+
+@media only screen and (max-width: 420px) {
+    /* body {
+        background-color: rgb(215, 226, 204);
+    } */
 }

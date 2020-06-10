@@ -10,6 +10,7 @@ class rabbit {
         this.tag = document.createElement('div');
         this.tag.className = "rabbit";
 
+
     }
 
 }
