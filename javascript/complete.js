@@ -1,3 +1,4 @@
+import { link_host } from './../local.js'
 class complete {
     constructor(main) {
         this.main = main;
@@ -21,7 +22,7 @@ class complete {
     initReplay() {
         this.replay = document.createElement('a');
         this.replay.className = "replay-a";
-        this.replay.href = "/";
+        this.replay.href = link_host;
         this.replay.innerHTML = `<div class= 'replay'> </div>`;
         this.tag.appendChild(this.replay);
     }
