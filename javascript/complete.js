@@ -21,7 +21,7 @@ class complete {
     initReplay() {
         this.replay = document.createElement('a');
         this.replay.className = "replay-a";
-        this.replay.href = "/index.html";
+        this.replay.href = "/";
         this.replay.innerHTML = `<div class= 'replay'> </div>`;
         this.tag.appendChild(this.replay);
     }
