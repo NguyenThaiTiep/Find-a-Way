@@ -41,6 +41,10 @@ class dot {
                             this.game.next(this);
                             this.setStatus();
                             this.audio_win.play();
+                            if (this.text == 20) {
+                                this.game.JumpToCarrot();
+                            }
+
                         } else {
                             this.audio_wrong.play();
                         }
@@ -72,6 +76,10 @@ class dot {
         this.audio_wrong.oncanplaythrough = function() {
             this.audio_wrong.play();
         }
+    }
+    setBackGroundImg() {
+        this.tag.classList.add('foot');
+        this.tag.innerHTML = '';
     }
 
 }

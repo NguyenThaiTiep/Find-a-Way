@@ -1,6 +1,7 @@
 class game {
-    constructor() {
+    constructor(parent) {
         this.way_list = [];
+        this.parent = parent;
         this.preNumber = 0;
         this.tag = null;
         this.width = GAME_WIDTH;
@@ -21,7 +22,7 @@ class game {
         this.initRabbit();
         this.board = new board(this, this.data_board);
         this.initCarrot();
-        document.body.appendChild(this.tag);
+        this.parent.tag.appendChild(this.tag);
 
     }
     update() {
@@ -77,19 +78,32 @@ class game {
     }
 
     initRabbit() {
-        var rabbit = document.createElement('div');
-        rabbit.className = "rabbit";
+        this.rabbit = document.createElement('div');
+        this.rabbit.className = "rabbit";
         var row = this.data_board.start.row - 5;
-        rabbit.style.marginTop = row * DOT_SIZE * 2 + "px";
-        this.tag.appendChild(rabbit);
+        this.rabbit.style.marginTop = row * DOT_SIZE * 2 + "px";
+        this.tag.appendChild(this.rabbit);
     }
     initCarrot() {
-        var carrot = document.createElement('div');
-        carrot.className = "carrot";
+        this.carrot = document.createElement('div');
+        this.carrot.className = "carrot";
         var row = this.data_board.end.row - 4.5;
-        carrot.style.marginTop = row * DOT_SIZE * 2 + "px";
-        this.tag.appendChild(carrot);
+        this.carrot.style.marginTop = row * DOT_SIZE * 2 + "px";
+        this.tag.appendChild(this.carrot);
+    }
+    JumpToCarrot() {
+        var i = 0;
+        this.rabbit.style.background = 'unset';
+        var jump = setInterval(() => {
+            if (i == 20) {
+                this.carrot.classList.add('rabbit-3')
+                clearInterval(jump);
+            } else {
+                this.way_list[i].setBackGroundImg();
+                i++;
+            }
+
+        }, 500);
     }
 
 }
-var GAME = new game();

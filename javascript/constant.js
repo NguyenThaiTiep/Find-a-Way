@@ -1,5 +1,5 @@
 const GAME_WIDTH = 600;
-const GAME_HEIGH = 700;
+const GAME_HEIGH = 600;
 
 const BOARD_WIDTH = 385;
 const BOARD_HEIGHT = 550;

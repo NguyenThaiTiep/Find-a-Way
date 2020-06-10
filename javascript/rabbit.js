@@ -9,8 +9,6 @@ class rabbit {
     init() {
         this.tag = document.createElement('div');
         this.tag.className = "rabbit";
-
-
     }
 
 }
