@@ -86,8 +86,8 @@ class game {
     initCarrot() {
         var carrot = document.createElement('div');
         carrot.className = "carrot";
-        var row = this.data_board.end.row - 5;
-        carrot.style.marginTop = row * DOT_SIZE + "px";
+        var row = this.data_board.end.row - 4.5;
+        carrot.style.marginTop = row * DOT_SIZE * 2 + "px";
         this.tag.appendChild(carrot);
     }
 
