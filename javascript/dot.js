@@ -9,10 +9,10 @@ class dot {
         this.text = text;
         this.tag = null;
         this.size = DOT_SIZE;
-        this.init();
+
         this.audio_win = new Audio('./ting.mp3');
         this.audio_wrong = new Audio('./wrong.mp3');
-        this.setSound();
+        this.init();
         this.dotListenMouserEvent();
     }
 
@@ -27,6 +27,7 @@ class dot {
         this.tag.id = 'item';
         this.tag.innerHTML = `<span>${this.text} </span>`;
         this.board.appendChild(this.tag);
+        // this.setSound();
     }
     update() {
 
@@ -42,6 +43,7 @@ class dot {
                             this.setStatus();
                             this.audio_win.play();
                             if (this.text == 20) {
+                                this.game.board.setCanNotClick();
                                 this.game.JumpToCarrot();
                             }
 
@@ -67,18 +69,24 @@ class dot {
         this.status = -this.status;
     }
     setCanClick(canClick) {
-        this.canClick = canClick;
-    }
-    setSound() {
-        this.audio_win.oncanplaythrough = function() {
-            this.audio_win.play();
+            this.canClick = canClick;
         }
-        this.audio_wrong.oncanplaythrough = function() {
-            this.audio_wrong.play();
-        }
-    }
-    setBackGroundImg() {
+        // setSound() {
+        //     this.audio_win.oncanplaythrough = function() {
+        //         this.audio_win.play();
+        //     }
+        //     this.audio_wrong.oncanplaythrough = function() {
+        //         this.audio_wrong.play();
+        //     }
+        // }
+    setBackGroundImgFoot() {
+        this.tag.classList.remove("rabbit-2");
         this.tag.classList.add('foot');
+        this.tag.innerHTML = '';
+    }
+    setBackGroundImgRabbit() {
+        this.tag.classList.remove("foot");
+        this.tag.classList.add('rabbit-2');
         this.tag.innerHTML = '';
     }
 

@@ -22,7 +22,8 @@ class board {
         this.game.tag.appendChild(this.board_tag);
     }
     initDots() {
-
+        this.board_tag.innerHTML = '';
+        this.dots = [];
         for (let row = 0; row < this.data.length; row++) {
             var dots_row = [];
             for (let col = 0; col < this.data[0].length; col++) {
@@ -70,10 +71,5 @@ class board {
         this.start.status = 1;
         console.log(this.start.canClick, this.start.status, this.start.row, this.start.col);
     }
-    JumpToCarrot() {
-        this.dots.forEach(dot => {
-            dot.setBackGroundImg();
 
-        });
-    }
 }

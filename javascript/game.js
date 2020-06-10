@@ -9,6 +9,7 @@ class game {
         this.board = null;
         this.data_board = 2;
         this.init();
+        this.score = 0;
 
     }
     init() {
@@ -35,6 +36,7 @@ class game {
 
     }
     initDataBoard() {
+        this.score = 0;
         var index = Math.floor(Math.random() * data.game.length)
         this.data_board = data.game[index];
     }
@@ -46,15 +48,16 @@ class game {
         this.reset();
         this.preNumber--;
         this.way_list.pop();
+        this.score = (this.score - 100 >= 0) ? (this.score - 100) : 0;
     }
     checkNumber(dot) {
         var number = dot.text;
         if (this.preNumber + 1 == number) {
             this.addNumberToWayList(dot);
-
+            this.score += 100;
             return true;
         } else {
-
+            this.score = (this.score - 50 >= 0) ? (this.score - 50) : 0;
             return false;
         }
     }
@@ -97,9 +100,17 @@ class game {
         var jump = setInterval(() => {
             if (i == 20) {
                 this.carrot.classList.add('rabbit-3')
+                this.way_list[i - 1].setBackGroundImgFoot();
+                setTimeout(() => {
+                    this.parent.initComplete();
+                }, 2000);
                 clearInterval(jump);
             } else {
-                this.way_list[i].setBackGroundImg();
+                this.way_list[i].setBackGroundImgRabbit();
+                if (i - 1 >= 0) {
+                    this.way_list[i - 1].setBackGroundImgFoot();
+                }
+
                 i++;
             }
 
