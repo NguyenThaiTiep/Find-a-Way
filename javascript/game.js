@@ -10,7 +10,6 @@ class game {
         this.data_board = 2;
         this.init();
         this.score = 0;
-
     }
     init() {
         this.tag = document.createElement('div');
@@ -24,17 +23,11 @@ class game {
         this.board = new board(this, this.data_board);
         this.initCarrot();
         this.parent.tag.appendChild(this.tag);
+        this.setWinSound();
+        this.startMusicGame();
 
     }
-    update() {
 
-    }
-    loop() {
-
-    }
-    draw() {
-
-    }
     initDataBoard() {
         this.score = 0;
         var index = Math.floor(Math.random() * data.game.length)
@@ -99,8 +92,10 @@ class game {
         this.rabbit.style.background = 'unset';
         var jump = setInterval(() => {
             if (i == 20) {
+                this.audio_game.play();
                 this.carrot.classList.add('rabbit-3')
                 this.way_list[i - 1].setBackGroundImgFoot();
+
                 setTimeout(() => {
                     this.parent.initComplete();
                 }, 2000);
@@ -115,6 +110,15 @@ class game {
             }
 
         }, 500);
+    }
+    setWinSound() {
+        this.audio_game = new Audio("./audio/win_game.mp3")
+    }
+    startMusicGame() {
+        this.game_music = new Audio("./audio/nhac_nen.mp3")
+        this.game_music.loop = true;
+        this.game_music.volume = 0.08;
+        this.game_music.play();
     }
 
 }
