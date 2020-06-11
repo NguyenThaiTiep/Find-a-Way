@@ -49,4 +49,3 @@ class main {
     }
 
 }
-var main_game = new main();

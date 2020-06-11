@@ -26,8 +26,10 @@
 <script type="text/javascript" src="javascript/complete.js"></script>
 <script type="text/javascript" src="javascript/main.js"></script>
 <script>
+    var main_game = new main();
     $('.start-btn').click(() => {
-        $('.start').addClass('animation-frame')
+        $('.start').addClass('animation-frame');
+        main_game.game.playMusic();
     })
 </script>
 

@@ -21,7 +21,6 @@ class complete {
     initReplay() {
         this.replay = document.createElement('a');
         this.replay.className = "replay-a";
-        // this.replay.href = link_host;
         this.replay.onclick = () => {
             location.reload();
         }

@@ -8,8 +8,10 @@ class game {
         this.height = GAME_HEIGH;
         this.board = null;
         this.data_board = 2;
+        this.game_music = new Audio("./audio/music_game.mp3")
         this.init();
         this.score = 0;
+
     }
     init() {
         this.tag = document.createElement('div');
@@ -25,7 +27,6 @@ class game {
         this.parent.tag.appendChild(this.tag);
         this.setWinSound();
         this.startMusicGame();
-
     }
 
     initDataBoard() {
@@ -115,9 +116,10 @@ class game {
         this.audio_game = new Audio("./audio/win_game.mp3")
     }
     startMusicGame() {
-        this.game_music = new Audio("./audio/nhac_nen.mp3")
         this.game_music.loop = true;
         this.game_music.volume = 0.08;
+    }
+    playMusic() {
         this.game_music.play();
     }
 
