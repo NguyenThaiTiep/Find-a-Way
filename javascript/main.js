@@ -12,6 +12,7 @@ class main {
         this.tag.className = 'main';
         document.body.appendChild(this.tag)
         this.initComponent();
+        this.initStart();
         this.loop();
 
     }
@@ -27,6 +28,9 @@ class main {
     }
     initComplete() {
         this.complete = new complete(this);
+    }
+    initStart() {
+        this.start = new start(this);
     }
     loop() {
         setInterval(() => {

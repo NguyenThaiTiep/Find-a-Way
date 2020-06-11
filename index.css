@@ -148,6 +148,61 @@ body {
     animation-iteration-count: 1;
 }
 
+.start {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    background-image: url('./backround-start.png');
+    background-size: cover;
+    position: absolute;
+    text-align: center;
+}
+
+.animation-frame {
+    animation-name: moveTopStart;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    top: -650px;
+}
+
+@keyframes moveTopStart {
+    0% {
+        top: 0px;
+    }
+    100% {
+        top: -650px;
+    }
+}
+
+.frame-btn {
+    width: 160px;
+    display: inline-block;
+    margin-top: 420px;
+    cursor: pointer;
+}
+
+.start-btn {
+    background-image: url('./Start.png');
+    width: 160px;
+    height: 55px;
+    background-size: cover;
+    border: unset;
+}
+
+.exit-btn {
+    background-image: url('./Exit.png');
+    width: 160px;
+    height: 55px;
+    background-size: cover;
+    margin-top: 30px;
+    border: unset;
+}
+
+.start-btn:hover,
+.exit-btn:hover {
+    transform: scale(1.05);
+}
+
 @keyframes moveTop {
     0% {
         top: -650px;
