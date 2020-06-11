@@ -1,4 +1,3 @@
-import { link_host } from './../local.js'
 class complete {
     constructor(main) {
         this.main = main;
