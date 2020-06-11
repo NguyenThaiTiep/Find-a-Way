@@ -21,7 +21,10 @@ class complete {
     initReplay() {
         this.replay = document.createElement('a');
         this.replay.className = "replay-a";
-        this.replay.href = link_host;
+        // this.replay.href = link_host;
+        this.replay.onclick = () => {
+            location.reload();
+        }
         this.replay.innerHTML = `<div class= 'replay'> </div>`;
         this.tag.appendChild(this.replay);
     }
