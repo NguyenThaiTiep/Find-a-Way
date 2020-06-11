@@ -50,21 +50,21 @@ body {
 }
 
 .game .rabbit {
-    background-image: url('./rabbit.png');
+    background-image: url('./asset/rabbit.png');
     background-size: cover;
     width: 70px;
     height: 90px;
 }
 
 .game .carrot {
-    background-image: url('./car.png');
+    background-image: url('./asset/car.png');
     background-size: cover;
     width: 80px;
     height: 45px;
 }
 
 .game .back {
-    background-image: url('./back.png');
+    background-image: url('./asset/back.png');
     background-size: cover;
     width: 50px;
     height: 50px;
@@ -75,17 +75,17 @@ body {
 }
 
 .foot {
-    background-image: url('./foot-dog.png') !important;
+    background-image: url('./asset/foot-dog.png') !important;
     background-size: cover;
 }
 
 .rabbit-2 {
-    background-image: url('./rabbit-2.png') !important;
+    background-image: url('./asset/rabbit-2.png') !important;
     background-size: cover;
 }
 
 .rabbit-3 {
-    background-image: url('./rabbit3.png') !important;
+    background-image: url('./asset/rabbit3.png') !important;
     background-size: cover;
     width: 70px !important;
     height: 100px !important;
@@ -139,7 +139,7 @@ body {
     width: 100%;
     height: 100%;
     top: -50px;
-    background-image: url('./complete.png');
+    background-image: url('./asset/complete.png');
     background-size: cover;
     position: absolute;
     text-align: center;
@@ -152,7 +152,7 @@ body {
     width: 100%;
     height: 100%;
     top: 0px;
-    background-image: url('./backround-start.png');
+    background-image: url('./asset/backround-start.png');
     background-size: cover;
     position: absolute;
     text-align: center;
@@ -182,7 +182,7 @@ body {
 }
 
 .start-btn {
-    background-image: url('./Start.png');
+    background-image: url('./asset/Start.png');
     width: 160px;
     height: 55px;
     background-size: cover;
@@ -190,7 +190,7 @@ body {
 }
 
 .exit-btn {
-    background-image: url('./Exit.png');
+    background-image: url('./asset/Exit.png');
     width: 160px;
     height: 55px;
     background-size: cover;
@@ -248,7 +248,7 @@ body {
 }
 
 .replay {
-    background-image: url('./replay.png');
+    background-image: url('./asset/replay.png');
     background-size: cover;
     display: inline-block;
     width: 120px;

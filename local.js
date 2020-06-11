@@ -1,1 +1,1 @@
-const link_host = "/Find-a-Way";
+const link_host = "/";

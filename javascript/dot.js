@@ -10,8 +10,8 @@ class dot {
         this.tag = null;
         this.size = DOT_SIZE;
 
-        this.audio_win = new Audio('./ting.mp3');
-        this.audio_wrong = new Audio('./wrong.mp3');
+        this.audio_win = new Audio('./audio/ting.mp3');
+        this.audio_wrong = new Audio('./audio/wrong.mp3');
         this.init();
         this.dotListenMouserEvent();
     }
