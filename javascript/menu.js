@@ -14,6 +14,9 @@ class menu {
         this.tag.className = "menu";
         this.main.tag.appendChild(this.tag);
         this.initButton();
+        this.initVolumeButtonDown();
+        this.initVolumeButtonUp();
+
         this.initScore();
 
     }
@@ -25,7 +28,7 @@ class menu {
         this.button_back.className = 'new-game'
         this.button_back.textContent = "New Game";
         this.tag.appendChild(this.button_back);
-        this.tag.onclick = () => {
+        this.button_back.onclick = () => {
             this.main.reset();
         }
     }
@@ -34,6 +37,24 @@ class menu {
         this.score_tag.className = "score";
         this.score_tag.innerHTML = `<span> SCORE  : ${ this.score } </span>`
         this.tag.appendChild(this.score_tag);
+    }
+    initVolumeButtonUp() {
+        this.volumeButtonUp = document.createElement('div');
+        this.volumeButtonUp.className = 'volume'
+        this.volumeButtonUp.innerHTML = `<i class="fa fa-volume-up" aria-hidden="true"></i>`;
+        this.tag.appendChild(this.volumeButtonUp);
+        this.volumeButtonUp.addEventListener('click', (event) => {
+            this.main.game.VolumeUp();
+        })
+    }
+    initVolumeButtonDown() {
+        this.volumeButtonDown = document.createElement('div');
+        this.volumeButtonDown.className = 'volume';
+        this.volumeButtonDown.innerHTML = `<i class="fa fa-volume-down" aria-hidden="true"></i>`;
+        this.tag.appendChild(this.volumeButtonDown);
+        this.volumeButtonDown.addEventListener('click', (event) => {
+            this.main.game.VolumeDown();
+        })
     }
 
     update() {

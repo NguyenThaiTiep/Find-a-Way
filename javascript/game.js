@@ -113,14 +113,32 @@ class game {
         }, 500);
     }
     setWinSound() {
-        this.audio_game = new Audio("./audio/win_game.mp3")
+        this.audio_game = new Audio("./audio/win_game.mp3");
+        this.audio_game.volume = 0.08;
     }
     startMusicGame() {
+        this.game_music.controls = 'controls'
         this.game_music.loop = true;
-        this.game_music.volume = 0.08;
+        this.game_music.volume = 0.05;
     }
     playMusic() {
         this.game_music.play();
+    }
+
+    VolumeUp() {
+        if (this.game_music.volume < 0.1) {
+            this.game_music.volume += 0.01;
+            console.log("volume : ", this.game_music.volume);
+
+        }
+    }
+    VolumeDown() {
+        if (this.game_music.volume >= 0.01) {
+            this.game_music.volume -= 0.01;
+            if (this.game_music.volume < 0.01) this.game_music.volume = 0;
+            console.log("volume : ", this.game_music.volume);
+        }
+
     }
 
 }

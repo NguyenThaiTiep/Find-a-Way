@@ -27,7 +27,7 @@ class dot {
         this.tag.id = 'item';
         this.tag.innerHTML = `<span>${this.text} </span>`;
         this.board.appendChild(this.tag);
-        // this.setSound();
+        this.setSound();
     }
     update() {
 
@@ -69,16 +69,12 @@ class dot {
         this.status = -this.status;
     }
     setCanClick(canClick) {
-            this.canClick = canClick;
-        }
-        // setSound() {
-        //     this.audio_win.oncanplaythrough = function() {
-        //         this.audio_win.play();
-        //     }
-        //     this.audio_wrong.oncanplaythrough = function() {
-        //         this.audio_wrong.play();
-        //     }
-        // }
+        this.canClick = canClick;
+    }
+    setSound() {
+        this.audio_wrong.volume = 0.08;
+        this.audio_win.volume = 0.3;
+    }
     setBackGroundImgFoot() {
         this.tag.classList.remove("rabbit-2");
         this.tag.classList.add('foot');

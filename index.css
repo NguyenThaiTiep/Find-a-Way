@@ -111,7 +111,7 @@ body {
     margin-top: 8px;
     padding-top: 7px !important;
     font-weight: bold;
-    margin-left: 250px;
+    margin-left: 70px;
 }
 
 .menu .new-game {
@@ -125,6 +125,26 @@ body {
     font-weight: bold;
     padding-top: 7px;
     cursor: pointer;
+    margin-right: 70px;
+}
+
+.menu .volume {
+    display: inline-block !important;
+    color: wheat;
+    font-size: 30px;
+    height: 100px;
+    width: 50px;
+    justify-items: center;
+}
+
+.menu .volume svg {
+    padding-top: 10px;
+    font-size: 40px;
+}
+
+.menu .volume:hover {
+    color: aqua;
+    transform: scale(1.05);
 }
 
 .new-game:hover {
