@@ -29,9 +29,6 @@ class dot {
         this.board.appendChild(this.tag);
         this.setSound();
     }
-    update() {
-
-    }
     dotListenMouserEvent() {
         this.tag.addEventListener('click', (event) => {
             if (this.canClick) {
@@ -60,9 +57,7 @@ class dot {
                 }
             } else {
                 console.log('cannot');
-
             }
-
         })
     }
     setStatus() {

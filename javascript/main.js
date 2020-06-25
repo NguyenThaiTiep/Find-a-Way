@@ -5,7 +5,6 @@ class main {
         this.menu = null;
         this.complete = null;
         this.init();
-
     }
     init() {
         this.tag = document.createElement('div');
@@ -14,7 +13,6 @@ class main {
         this.initComponent();
         this.initStart();
         this.loop();
-
     }
     initComponent() {
         this.initMenu();
@@ -39,8 +37,6 @@ class main {
     }
     update() {
         this.menu.score = this.game.score;
-        console.log(this.game.score);
-
         this.menu.update();
     }
     reset() {
