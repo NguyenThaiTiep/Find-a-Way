@@ -114,7 +114,7 @@ class game {
         switch (this.mode) {
             case "number":
                 this.question_tag.innerHTML =
-                    `<span> <b>Find the way from 1 to 20 </b> </span>`
+                    `<span> <b>Find the path from 1 to 20 </b> </span>`
                 break;
             case "character":
                 this.question_tag.innerHTML =
