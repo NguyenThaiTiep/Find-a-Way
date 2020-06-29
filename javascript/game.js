@@ -113,10 +113,12 @@ class game {
         this.question_tag.className = "question";
         switch (this.mode) {
             case "number":
-                this.question_tag.innerHTML = `<span> <b>Find the way from 1 to 20 </b> </span>`
+                this.question_tag.innerHTML =
+                    `<span> <b>Find the way from 1 to 20 </b> </span>`
                 break;
             case "character":
-                this.question_tag.innerHTML = `<span> <b> Find the way include string <i>  "${this.data_board.result}" </i> </b></span>`
+                this.question_tag.innerHTML =
+                    `<span> <b> Find the path containing <i>  "${this.data_board.result}" </i> </b></span>`
                 break;
         }
 
