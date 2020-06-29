@@ -17,7 +17,8 @@ Find Way là trò chơi toán học dành cho học sinh lớp 1, được xây 
 - Lưu ý : Dữ liệu game sẽ được lây random trong json đã tạo
 
 - Mode :Number
-```` {
+```` 
+{
             "mode": "number",
             "data": [
                 [__, __, __, __, __, __, __],
@@ -36,7 +37,8 @@ Find Way là trò chơi toán học dành cho học sinh lớp 1, được xây 
         }>
 ````
 - Mode : Character 
-```` {
+```` 
+{
             "mode": "character",
             "data": [
                 [___, ___, ___, ___, ___, ___, ___],
