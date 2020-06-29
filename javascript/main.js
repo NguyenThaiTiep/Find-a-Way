@@ -35,6 +35,7 @@ class main {
             this.update();
         }, 300);
     }
+
     update() {
         this.menu.score = this.game.score;
         this.menu.update();
@@ -43,5 +44,6 @@ class main {
         this.tag.innerHTML = '';
         this.initComponent();
     }
+
 
 }

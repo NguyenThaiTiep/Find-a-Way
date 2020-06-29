@@ -55,6 +55,11 @@ class game {
         this.reset();
         this.result--;
         this.way_list.pop();
+        if (this.mode == "character") {
+            this.index_result--;
+            this.result = this.result_list[this.index_result];
+
+        }
         this.score = (this.score - 100 >= 0) ? (this.score - 100) : 0;
     }
 
