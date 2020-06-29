@@ -1,8 +1,10 @@
 class game {
     constructor(parent) {
         this.way_list = [];
+        this.result_list = [];
         this.parent = parent;
-        this.preNumber = 0;
+        this.mode = "number";
+        this.result = 1;
         this.tag = null;
         this.width = GAME_WIDTH;
         this.height = GAME_HEIGH;
@@ -11,7 +13,6 @@ class game {
         this.game_music = new Audio("./audio/music_game.mp3")
         this.init();
         this.score = 0;
-
     }
     init() {
         this.tag = document.createElement('div');
@@ -25,6 +26,7 @@ class game {
         this.board = new board(this, this.data_board);
         this.initCarrot();
         this.parent.tag.appendChild(this.tag);
+        this.initQuestion();
         this.setWinSound();
         this.startMusicGame();
     }
@@ -33,20 +35,32 @@ class game {
         this.score = 0;
         var index = Math.floor(Math.random() * data.game.length)
         this.data_board = data.game[index];
+        this.mode = this.data_board.mode;
+        if (this.mode === "character") {
+            this.result_list = this.data_board.result.replace(/\s+/g, '');
+            this.result_list = this.result_list.toUpperCase();
+            this.index_result = 0;
+            this.result = this.result_list.charAt(0);
+        }
     }
     addNumberToWayList(dot) {
         this.way_list.push(dot);
-        this.preNumber = dot.text;
+        this.result += 1;
+        if (this.mode === "character") {
+            this.index_result++;
+            this.result = this.result_list[this.index_result];
+        }
     }
     popWayList() {
         this.reset();
-        this.preNumber--;
+        this.result--;
         this.way_list.pop();
         this.score = (this.score - 100 >= 0) ? (this.score - 100) : 0;
     }
-    checkNumber(dot) {
+
+    checkResult(dot) {
         var number = dot.text;
-        if (this.preNumber + 1 == number) {
+        if (this.result === number) {
             this.addNumberToWayList(dot);
             this.score += 100;
             return true;
@@ -88,11 +102,26 @@ class game {
         this.carrot.style.marginTop = row * DOT_SIZE * 2 + "px";
         this.tag.appendChild(this.carrot);
     }
+    initQuestion() {
+        var question = this.data_board.result;
+        this.question_tag = document.createElement("div");
+        this.question_tag.className = "question";
+        switch (this.mode) {
+            case "number":
+                this.question_tag.innerHTML = `<span> <b>Find the way from 1 to 20 </b> </span>`
+                break;
+            case "character":
+                this.question_tag.innerHTML = `<span> <b> Find the way include string <i>  "${this.data_board.result}" </i> </b></span>`
+                break;
+        }
+
+        this.tag.appendChild(this.question_tag);
+    }
     JumpToCarrot() {
         var i = 0;
         this.rabbit.style.background = 'unset';
         var jump = setInterval(() => {
-            if (i == 20) {
+            if (i == 20 || i == this.result_list.length) {
                 this.audio_game.play();
                 this.carrot.classList.add('rabbit-3')
                 this.way_list[i - 1].setBackGroundImgFoot();
@@ -106,7 +135,6 @@ class game {
                 if (i - 1 >= 0) {
                     this.way_list[i - 1].setBackGroundImgFoot();
                 }
-
                 i++;
             }
 
@@ -139,6 +167,21 @@ class game {
             console.log("volume : ", this.game_music.volume);
         }
 
+    }
+    setMode(mode) {
+        this.mode = mode;
+    }
+    checkWinGame() {
+        var res = false;
+        switch (this.mode) {
+            case "number":
+                res = (this.result == 21);
+                break;
+            case "character":
+                res = (this.index_result == this.result_list.length);
+                break;
+        }
+        return res;
     }
 
 }

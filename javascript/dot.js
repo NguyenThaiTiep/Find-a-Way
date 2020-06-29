@@ -6,7 +6,7 @@ class dot {
         this.board = board;
         this.col = col;
         this.row = row;
-        this.text = text;
+        this.initText(text);
         this.tag = null;
         this.size = DOT_SIZE;
 
@@ -34,16 +34,15 @@ class dot {
             if (this.canClick) {
                 switch (this.status) {
                     case 1:
-                        if (this.game.checkNumber(this)) {
+                        if (this.game.checkResult(this)) {
                             this.tag.classList.add("active");
                             this.game.next(this);
                             this.setStatus();
                             this.audio_win.play();
-                            if (this.text == 20) {
+                            if (this.game.checkWinGame()) {
                                 this.game.board.setCanNotClick();
                                 this.game.JumpToCarrot();
                             }
-
                         } else {
                             this.audio_wrong.play();
                         }
@@ -79,6 +78,21 @@ class dot {
         this.tag.classList.remove("foot");
         this.tag.classList.add('rabbit-2');
         this.tag.innerHTML = '';
+    }
+    initText(text) {
+        this.text = text;
+        if (this.text === __) {
+            switch (this.game.mode) {
+                case "number":
+                    this.text = Math.floor(Math.random() * 20)
+                    break;
+                case "character":
+                    var num = Math.floor(Math.random() * Characters.length);
+                    this.text = Characters.charAt(num);
+                    break;
+            }
+
+        }
     }
 
 }

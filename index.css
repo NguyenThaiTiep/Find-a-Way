@@ -13,7 +13,8 @@ body {
 }
 
 .game {
-    background-color: burlywood;
+    /* background-color: burlywood; */
+    background-color: rgb(215, 226, 204);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,6 +69,13 @@ body {
     background-size: cover;
     width: 50px;
     height: 50px;
+}
+
+.game .question {
+    height: 50px;
+    position: absolute;
+    font-size: 1.3rem;
+    top: 70px;
 }
 
 .btn-des {
@@ -182,7 +190,7 @@ body {
     animation-name: moveTopStart;
     animation-duration: 2s;
     animation-iteration-count: 1;
-    top: -650px;
+    top: -740px;
 }
 
 @keyframes moveTopStart {
@@ -190,7 +198,7 @@ body {
         top: 0px;
     }
     100% {
-        top: -650px;
+        top: -675px;
     }
 }
 
@@ -225,7 +233,7 @@ body {
 
 @keyframes moveTop {
     0% {
-        top: -650px;
+        top: -675px;
     }
     100% {
         top: -50px;
