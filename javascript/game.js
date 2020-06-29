@@ -126,7 +126,7 @@ class game {
         var i = 0;
         this.rabbit.style.background = 'unset';
         var jump = setInterval(() => {
-            if (i == 20 || i == this.result_list.length) {
+            if (i == 20 || i == this.result_list.length && i != 0) {
                 this.audio_game.play();
                 this.carrot.classList.add('rabbit-3')
                 this.way_list[i - 1].setBackGroundImgFoot();
